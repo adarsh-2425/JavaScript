@@ -30,3 +30,11 @@ fetch(API_ENDPOINT)
   .catch(error => {
     console.log(error);
   })
+
+//4.Find all posts that have the word "error" in the title property:
+fetch(API_ENDPOINT)
+  .then(response => response.json())
+  .then(posts => {
+    const postWithErrorTitle = posts.filter(post => post.title.includes('error'));
+    console.log(postWithErrorTitle);
+  })
