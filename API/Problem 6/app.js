@@ -18,3 +18,15 @@ fetch(API_ENDPOINT)
   .catch(error => {
     console.log(error);
   })
+
+//3. Find the average length of the body property for all posts:
+fetch(API_ENDPOINT)
+  .then(response => response.json())
+  .then(posts => {
+    const totalLength = posts.reduce((sum, post) => sum + post.body.length, 0);
+    const avgLength = totalLength / posts.length;
+    console.log(avgLength);
+  })
+  .catch(error => {
+    console.log(error);
+  })
