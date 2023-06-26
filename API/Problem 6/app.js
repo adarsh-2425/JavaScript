@@ -58,3 +58,13 @@ fetch(API_ENDPOINT)
   .catch((error) => {
   console.log(error);
   })
+
+//7. Find the post with the highest ID, and log its title to the console.
+fetch(API_ENDPOINT)
+  .then(response => response.json())
+  .then(posts => {
+    const maxId = Math.max(...posts.map(post => post.id));
+    const post = posts.find(post => post.id === maxId)
+    console.log(post.title);
+  })
+.catch(error => console.log(error));
