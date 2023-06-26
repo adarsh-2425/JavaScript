@@ -80,7 +80,8 @@ fetch(API_ENDPOINT, {
 })
 .catch(error => console.log(error));
 
-/*5. Write a POST request using async..await that creates a new post with userId=4, title="My Coding Journey", and body="I've been learning to code for the past year and it's been an incredible journey. Here are some of the things I've learned along the way."*/
+/*5. Write a POST request using async..await that creates a new post with userId=4, title="My Coding Journey", 
+and body="I've been learning to code for the past year and it's been an incredible journey. Here are some of the things I've learned along the way."*/
 
 const createNewPost = async (userId, title, body) => {
   try{
