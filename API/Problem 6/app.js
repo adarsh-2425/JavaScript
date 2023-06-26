@@ -31,7 +31,7 @@ fetch(API_ENDPOINT)
     console.log(error);
   })
 
-//4.Find all posts that have the word "error" in the title property:
+//4. Find all posts that have the word "error" in the title property:
 fetch(API_ENDPOINT)
   .then(response => response.json())
   .then(posts => {
@@ -39,10 +39,22 @@ fetch(API_ENDPOINT)
     console.log(postWithErrorTitle);
   })
 
-//5.Create a new array of all post titles in uppercase:
+//5. Create a new array of all post titles in uppercase:
 fetch(API_ENDPOINT)
   .then(response => response.json())
   .then(posts => {
     const titleInUppercase = posts.map(post => post.title.toUpperCase());
     console.log(titleInUppercase);
+  })
+
+//6. Find all posts with IDs between 20 and 30, and log their titles to the console.
+fetch(API_ENDPOINT)
+  .then(response => response.json())
+  .then(posts => {
+    const ids20and30 = posts.filter(post => post.id >= 20 && post.id <= 30)
+    .map(post => post.title);
+    console.log(ids20and30);
+  })
+  .catch((error) => {
+  console.log(error);
   })
