@@ -38,3 +38,11 @@ fetch(API_ENDPOINT)
     const postWithErrorTitle = posts.filter(post => post.title.includes('error'));
     console.log(postWithErrorTitle);
   })
+
+//5.Create a new array of all post titles in uppercase:
+fetch(API_ENDPOINT)
+  .then(response => response.json())
+  .then(posts => {
+    const titleInUppercase = posts.map(post => post.title.toUpperCase());
+    console.log(titleInUppercase);
+  })
