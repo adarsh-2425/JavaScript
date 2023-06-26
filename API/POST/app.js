@@ -79,3 +79,27 @@ fetch(API_ENDPOINT, {
   console.log('Newly created data is:', data)
 })
 .catch(error => console.log(error));
+
+/*5. Write a POST request using async..await that creates a new post with userId=4, title="My Coding Journey", and body="I've been learning to code for the past year and it's been an incredible journey. Here are some of the things I've learned along the way."*/
+
+const createNewPost = async (userId, title, body) => {
+  try{
+    const response = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      body: JSON.stringify({userId, title, body}),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+      }
+    });
+    if(response.ok) {
+      const data = await response.json();
+      console.log('New post created:', data);
+    } else {
+      throw new Error('Cannot create new post')
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+createNewPost(4, "My Coding Journey", "I've been learning to code for the past year and it's been an incredible journey. Here are some of the things I've learned along the way.");
