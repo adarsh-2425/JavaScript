@@ -79,3 +79,23 @@ fetch(API_ENDPOINT)
     console.log(postsOfUserId1);
   })
 .catch(error => console.log(error));
+
+//9. Group all posts by userId, and log the number of posts for each user to the console.
+fetch(API_ENDPOINT)
+  .then(response => response.json())
+  .then(posts => {
+    const groupedPosts = posts.reduce((groups, post) => {
+      const key = post.userId;
+      if(!groups[key]) {
+        groups[key] = [];
+      }
+      groups[key].push(post);
+      return groups
+    }, {});
+    for(userId in groupedPosts) {
+      console.log(`User ${userId} has ${groupedPosts[userId].length} posts.`)
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  })
