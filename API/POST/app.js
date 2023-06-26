@@ -59,3 +59,23 @@ fetch(API_ENDPOINT, {
   console.log('New post created:', data)
 })
 .catch(error => console.log(error));
+
+/*4. Write a POST request that creates a new post with userId=7, title="My Favorite Recipe", 
+and body="I love to cook and this is one of my all-time favorite recipes. Give it a try and let me know what you think!"*/
+
+fetch(API_ENDPOINT, {
+  method: 'POST',
+  body:  JSON.stringify({
+    userId: 7,
+    title: 'My Favorite Recipe',
+    body: "I love to cook and this is one of my all-time favorite recipes. Give it a try and let me know what you think!"
+  }),
+  headers: {
+    'Content-Type': 'application/json; charset=UTF-8'
+  }
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Newly created data is:', data)
+})
+.catch(error => console.log(error));
