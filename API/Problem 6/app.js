@@ -68,3 +68,14 @@ fetch(API_ENDPOINT)
     console.log(post.title);
   })
 .catch(error => console.log(error));
+
+//8. Calculate the total number of characters in the body of all posts with a userId of 1.
+fetch(API_ENDPOINT)
+  .then(response => response.json())
+  .then(posts => {
+    const postsOfUserId1 = posts
+      .filter(post => post.userId === 1)
+      .reduce((sum, post) => sum + post.body.length, 0);
+    console.log(postsOfUserId1);
+  })
+.catch(error => console.log(error));
