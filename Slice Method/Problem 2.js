@@ -2,7 +2,7 @@
 
 function lastTwo(nums) {
   const result =  nums.slice(-2);
-  console.log(result);
+  console.log(result); //[4, 5]
 }
 
 const nums = [1, 2, 3, 4, 5];
