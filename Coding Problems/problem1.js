@@ -1,9 +1,10 @@
 // Coding challenge #20: Rotate an array to the left 1 position
 
 function rotateLeft(numbers) {
-  const lastNumber = numbers.pop();
-  numbers.unshift(lastNumber);
-  return numbers;
+  const rotatedArray = [...numbers];
+  const firstNumber = rotatedArray.shift();
+  rotatedArray.push(firstNumber);
+  return rotatedArray;
 }
 
 const numbers = [1, 2, 3];
